@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 1f;
     public float sprint = 2f;
+    public float health = 3f;
     public Animator animator;
     private Vector2 direction;
     private Rigidbody2D rb;
@@ -20,10 +21,23 @@ public class PlayerController : MonoBehaviour
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
+        if (health <= 0)
+        {
+            animator.SetTrigger("Death");
+            return;
+        }
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
-        animator.SetFloat("Speed", direction.magnitude); 
+        animator.SetFloat("Speed", direction.magnitude);
         animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 
     private void FixedUpdate()
@@ -32,6 +46,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed *= sprint;
+
         }
         rb.MovePosition(rb.position + direction * currentSpeed * Time.fixedDeltaTime);
     }
