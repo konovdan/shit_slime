@@ -10,7 +10,7 @@ public class Camera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        trackedObject = GameObject.Find("Player");
+        trackedObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -22,8 +22,5 @@ public class Camera : MonoBehaviour
         transform.position = position;
         
     }
-    public void OnMove()
-    {
-        Debug.Log("Moved!");
-    }
+
 }

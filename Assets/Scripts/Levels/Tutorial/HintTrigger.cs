@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-
-public class PlaySinglePlayerButton : MonoBehaviour
+public class HintTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
+    private bool once = false;
     void Start()
     {
         
@@ -18,8 +16,12 @@ public class PlaySinglePlayerButton : MonoBehaviour
     {
         
     }
-    public void OnClick()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("tutorialMap");
+        if (collision != null && !once)
+        {
+            Debug.Log("Touched!");
+            once = true;
+        }
     }
 }
