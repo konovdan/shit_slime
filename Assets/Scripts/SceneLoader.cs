@@ -1,16 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
+using Assets.Scripts;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class SceneLoader : MonoBehaviour
 {
-    public new GameObject camera;
+    public GameObject camera;
     public GameObject player;
+    private GameObject map;
     void Start()
     {
-        Instantiate(player);
-        Instantiate(camera);
+        if(!GlobalVarsNamespace.sceneLoaded)
+        {
+            Instantiate(player);
+            Instantiate(camera);
+            map = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Maps/map.prefab"); // Dangerous shit! Causes infinite reload
+            Instantiate(map);
+            GlobalVarsNamespace.sceneLoaded = true;
+        }
     }
     void Update()
     {

@@ -1,16 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
     GameObject trackedObject;
-    // Start is called before the first frame update
     void Start()
     {
         trackedObject = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame

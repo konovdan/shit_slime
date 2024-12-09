@@ -1,9 +1,9 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 
 public class PlaySinglePlayerButton : MonoBehaviour
 {
@@ -20,6 +20,7 @@ public class PlaySinglePlayerButton : MonoBehaviour
     }
     public void OnClick()
     {
-        SceneManager.LoadScene("tutorialMap");
+        SceneManager.LoadScene("levelMap");
+        GlobalVarsNamespace.levelName = "map_tutorial";
     }
 }
