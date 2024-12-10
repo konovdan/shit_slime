@@ -10,7 +10,6 @@ public class PlaySinglePlayerButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -20,7 +19,7 @@ public class PlaySinglePlayerButton : MonoBehaviour
     }
     public void OnClick()
     {
-        SceneManager.LoadScene("levelMap");
+        SceneManager.LoadScene("LevelMap");
         GlobalVarsNamespace.levelName = "map_tutorial";
     }
 }

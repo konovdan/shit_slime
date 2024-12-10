@@ -6,7 +6,6 @@ public class Camera : MonoBehaviour
     void Start()
     {
         trackedObject = GameObject.FindGameObjectWithTag("Player");
-        
     }
 
     // Update is called once per frame

@@ -35,4 +35,20 @@ public class PlayerController : MonoBehaviour
         }
         rb.MovePosition(rb.position + direction * currentSpeed * Time.fixedDeltaTime);
     }
+    public void Up()
+    {
+        direction.y = 100;
+        FixedUpdate();
+        //float currentSpeed = speed;
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    currentSpeed *= sprint;
+        //}
+        //Debug.Log(currentSpeed);
+        //Debug.Log(direction.y);
+        //Debug.Log(rb.position);
+        //transform.position = rb.position + direction * currentSpeed * Time.fixedDeltaTime;
+        //rb.MovePosition(rb.position + direction * currentSpeed * Time.fixedDeltaTime);
+
+    }
 }

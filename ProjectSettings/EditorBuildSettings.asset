@@ -9,6 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f2010e996a4fa664f84744e8edb22da8
   - enabled: 1
-    path: Assets/Scenes/levelMap.unity
+    path: Assets/Scenes/LevelMap.unity
     guid: 4c1cb5de0ecbbd14ebba91729243c554
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
