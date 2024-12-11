@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using Assets.Scripts;
 
 public class DamageCollider : MonoBehaviour
 {

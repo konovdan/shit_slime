@@ -1,6 +1,6 @@
 using UnityEditor.SearchService;
 using UnityEngine;
-
+using Assets.Scripts;
 public class UILoader : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
