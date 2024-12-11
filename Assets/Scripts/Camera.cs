@@ -13,7 +13,7 @@ public class Camera : MonoBehaviour
     {
         
         Vector3 position = trackedObject.transform.position;
-        position.z = -10;
+        position.z = trackedObject.transform.position.z - 10;
         transform.position = position;
         
     }

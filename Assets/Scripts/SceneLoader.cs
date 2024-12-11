@@ -2,31 +2,29 @@ using Assets.Scripts;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements.InputSystem;
 
 public class SceneLoader : MonoBehaviour
 {
     private GameObject camera;
-    private GameObject player;
+    private PlayerController player;
     private GameObject map;
-    private GameObject AndroidController;
+    private GameObject player_ui;
+    public string OptionalSceneToLoad = "";
     void Start()
     {
         if(!GlobalVarsNamespace.sceneLoaded)
         {
-            player = Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
+            player = Instantiate(Resources.Load<PlayerController>("Prefabs/Player"));
             player.name="Player";
+            player.transform.position = Vector3.zero;
             camera = Instantiate(Resources.Load<GameObject>("Prefabs/MainCamera"));
             camera.name = "Camera";
-            map = Instantiate(Resources.Load<GameObject>($"Prefabs/Maps/{GlobalVarsNamespace.levelName}"));
+            map = Instantiate(Resources.Load<GameObject>($"Prefabs/Maps/{(OptionalSceneToLoad.Length>0?OptionalSceneToLoad:GlobalVarsNamespace.levelName)}"));
             map.name="Map";
-
-            if(Application.platform == RuntimePlatform.Android || true)
-            {
-                AndroidController = Instantiate(Resources.Load<GameObject>($"Prefabs/AndroidController"));
-                AndroidController.name = "AndroidController";
-                AndroidController.transform.localScale=new Vector3(0.015f,0.015f);
-                AndroidController.transform.position = new Vector3(-7.5f, -2.5f);
-            }
+            player_ui = Instantiate(Resources.Load<GameObject>("Prefabs/PlayerUI"));
+            player_ui.name = "player_ui";
 
             GlobalVarsNamespace.sceneLoaded = true;
         }
